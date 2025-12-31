@@ -1,15 +1,16 @@
-function countLetter(letter,word) {
-    let count = 0;
+function countDigits(str) {
+  let count = 0;
 
-    for (let i = 0; i < word.length; i++) {
-        if(word[i] === letter){
-            count++;
-        }
+  for (let char of str) {
+    if (char >= '0' && char <= '9') {
+      count++;
     }
-    return count;
+  }
+
+  return count;
 }
 
-console.log(countLetter("e", "engineer"));
+console.log(countDigits("ad2a54y79wet0sfgb9"));
 
 
 // console.log("Jack Ma maslahatlari");
