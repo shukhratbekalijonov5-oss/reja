@@ -1,17 +1,44 @@
-function countDigits(str) {
-  let count = 0;
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
 
-  for (let char of str) {
-    if (char >= '0' && char <= '9') {
-      count++;
+  getTime() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, "0");
+    const m = String(now.getMinutes()).padStart(2, "0");
+    return `${h}:${m}`;
+  }
+
+  qoldiq() {
+    console.log(
+      `Hozir ${this.getTime()} da ${this.non} ta non, ${this.lagmon} ta lag'mon va ${this.cola} ta cola mavjud`
+    );
+  }
+
+  sotish(mahsulot, soni) {
+    if (this[mahsulot] !== undefined) {
+      this[mahsulot] -= soni;
+      console.log(`${this.getTime()} da ${soni} ta ${mahsulot} sotildi`);
     }
   }
 
-  return count;
+  qabul(mahsulot, soni) {
+    if (this[mahsulot] !== undefined) {
+      this[mahsulot] += soni;
+      console.log(`${this.getTime()} da ${soni} ta ${mahsulot} qabul qilindi`);
+    }
+  }
 }
 
-console.log(countDigits("ad2a54y79wet0sfgb9"));
-
+// TEST
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
 
 // console.log("Jack Ma maslahatlari");
 //const list = [
