@@ -25,3 +25,26 @@ let createField = document.getElementById("create-field");
         console.log("Ilimos qaytadan harakat qiling!");
     });
 });
+
+document.addEventListener("click", function (e) {
+    // delete oper
+    console.log(e.target);
+    if (e.target.classList.contains("delete-me")) {
+        e.preventDefault();
+        if(confirm("Aniq ochirmoqchimisiz")) {
+           // alert("Yes javob berildi");
+        //} else {
+           // alert("Yoq deb javob berdi")
+           axios.post("/delete-item", {id: e.target.getAttribute("data-id")})
+           .then((respone) => {console.log(response.data);
+             e.target.parentElement.parentElement.remove();})
+           .catch((err) => {});
+      }
+    }
+
+    //edit oper
+
+    if (e.target.classList.contains("edit-me")) {
+        alert("siz edit tugmasini bosdingiz");
+    } 
+});
