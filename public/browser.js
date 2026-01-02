@@ -36,7 +36,7 @@ document.addEventListener("click", function (e) {
         //} else {
            // alert("Yoq deb javob berdi")
            axios.post("/delete-item", {id: e.target.getAttribute("data-id")})
-           .then((respone) => {console.log(response.data);
+           .then((response) => {console.log(response.data);
              e.target.parentElement.parentElement.remove();})
            .catch((err) => {});
       }
