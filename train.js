@@ -1,44 +1,17 @@
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
-  }
+function checkContent(str1, str2) {
+  if (str1.length !== str2.length) return false;
 
-  getTime() {
-    const now = new Date();
-    const h = String(now.getHours()).padStart(2, "0");
-    const m = String(now.getMinutes()).padStart(2, "0");
-    return `${h}:${m}`;
-  }
+  const sorted1 = str1.split('').sort().join('');
+  const sorted2 = str2.split('').sort().join('');
 
-  qoldiq() {
-    console.log(
-      `Hozir ${this.getTime()} da ${this.non} ta non, ${this.lagmon} ta lag'mon va ${this.cola} ta cola mavjud`
-    );
-  }
-
-  sotish(mahsulot, soni) {
-    if (this[mahsulot] !== undefined) {
-      this[mahsulot] -= soni;
-      console.log(`${this.getTime()} da ${soni} ta ${mahsulot} sotildi`);
-    }
-  }
-
-  qabul(mahsulot, soni) {
-    if (this[mahsulot] !== undefined) {
-      this[mahsulot] += soni;
-      console.log(`${this.getTime()} da ${soni} ta ${mahsulot} qabul qilindi`);
-    }
-  }
+  return sorted1 === sorted2;
 }
 
-// TEST
-const shop = new Shop(4, 5, 2);
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
-shop.qoldiq();
+// Masalan:
+console.log(checkContent("mitgroup", "gmtiprou")); // true
+console.log(checkContent("hello", "ollhe"));       // true
+console.log(checkContent("test", "tent"));         // false
+
 
 // console.log("Jack Ma maslahatlari");
 //const list = [
