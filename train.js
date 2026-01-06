@@ -1,16 +1,16 @@
-function checkContent(str1, str2) {
-  if (str1.length !== str2.length) return false;
 
-  const sorted1 = str1.split('').sort().join('');
-  const sorted2 = str2.split('').sort().join('');
-
-  return sorted1 === sorted2;
+str = "hello"
+function getReverse(str) {
+  let result = "";
+  
+  for (let i = str.length - 1; i >= 0; i--) {
+    result = result + str[i];
+  }
+  
+  return result;
 }
+console.log(getReverse("hello"));
 
-// Masalan:
-console.log(checkContent("mitgroup", "gmtiprou")); // true
-console.log(checkContent("hello", "ollhe"));       // true
-console.log(checkContent("test", "tent"));         // false
 
 
 // console.log("Jack Ma maslahatlari");
