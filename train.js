@@ -1,16 +1,15 @@
-
-str = "hello"
-function getReverse(str) {
-  let result = "";
-  
-  for (let i = str.length - 1; i >= 0; i--) {
-    result = result + str[i];
+function findDoublers(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) !== str.lastIndexOf(str[i])) {
+      return true;
+    }
   }
-  
-  return result;
+  return false;
 }
-console.log(getReverse("hello"));
 
+// TESTS
+console.log(findDoublers("hello")); // true
+console.log(findDoublers("world")); // false
 
 
 // console.log("Jack Ma maslahatlari");
